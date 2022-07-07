@@ -8,7 +8,6 @@ export const Navbar = () => {
   const { name } = JSON.parse(localStorage.getItem("user"));
 
   const onLogout = () => {
-    localStorage.removeItem("user");
     logout();
     navigate("login", { replace: true });
   };
