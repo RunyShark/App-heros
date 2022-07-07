@@ -1,5 +1,5 @@
 //*Components
-export * from "./components";
+export * from "./components"
 //*Data
 export * from "./data";
 //*Helpers
