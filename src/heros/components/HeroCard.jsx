@@ -8,6 +8,11 @@ export const HeroCard = ({
   characters,
 }) => {
   const herosImgUrl = `../../../assets/heroes/${id}.jpg`;
+  const charactesByHero = (
+    <p>
+      <span style={{ fontFamily: "cursive" }}>Otros actores</span> {characters}
+    </p>
+  );
   return (
     <div className="col">
       <div className="card">
@@ -19,14 +24,7 @@ export const HeroCard = ({
             <div className="card-body">
               <h5 className="card-title">{superhero}</h5>
               <p className="card-text">{alter_ego}</p>
-              {characters === alter_ego ? (
-                ""
-              ) : (
-                <p>
-                  <span style={{ fontFamily: "cursive" }}>Otros actores</span>{" "}
-                  {characters}
-                </p>
-              )}
+              {characters === alter_ego ? "" : charactesByHero}
               <p className="card-text">
                 <small className="text-muted">{first_appearance}</small>
               </p>

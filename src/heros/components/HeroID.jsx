@@ -1,10 +1,17 @@
-import { useParams } from "react-router";
+import { useParams, Navigate } from "react-router";
 import { getHeroById } from "../";
 
 export const HeroID = () => {
   const { id } = useParams();
+
+  const hero = getHeroById(id);
+
+  if (!hero) {
+    return <Navigate to="/" />;
+  }
+
   const { superhero, publisher, alter_ego, first_appearance, characters } =
-    getHeroById(id);
+    hero;
   const pathImgByHero = `../../../assets/heroes/${id}.jpg`;
   return (
     <>
