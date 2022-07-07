@@ -2,3 +2,4 @@
 //*Helpers
 //*Components
 //*Pages
+export * from "./pages/LoginPages";
