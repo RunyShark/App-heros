@@ -1,8 +1,10 @@
 import { AppRouter } from "./router/AppRouter";
+import { Navbar } from "./ui";
+
 export const AppHeros = () => {
   return (
     <div className="App">
-      <h1>Heroes app</h1>
+      <Navbar />
       <AppRouter />
     </div>
   );
