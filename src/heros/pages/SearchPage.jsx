@@ -1,10 +1,15 @@
 import { useLocation, useNavigate } from "react-router";
 import queryString from "query-string";
-import { useForm, HeroCard } from "../";
+import { useForm, HeroCard, getHerosByName } from "../";
+
+const searchHero = () => {};
+
 export const SearchPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { name = "", asc } = queryString.parse(location.search);
+  const { name = "", asc = "" } = queryString.parse(location.search);
+  const heros = getHerosByName(name);
+  console.log("Alelu", heros);
   const { searchText, onChangeForm, onResetForm } = useForm({
     searchText: "",
   });
@@ -43,11 +48,21 @@ export const SearchPage = () => {
         <div className="col-7">
           <h4>Resultado</h4>
           <hr />
-          <div className="alert alert-primary">Heroe</div>
-          <div className="alert alert-danger">
-            No se encontro el heroe <b>{name}</b>
-          </div>
-          {/* <HeroCard /> */}
+
+          {name === "" ? (
+            <div className="alert alert-primary">Buscar heroe</div>
+          ) : heros.length === 0 ? (
+            <div className="alert alert-danger">
+              No se encontro el heroe <b>{name}</b>
+            </div>
+          ) : (
+            heros.map((heros) => (
+              <>
+                <div className="alert alert-primary">Resultado</div>
+                <HeroCard key={heros.id} {...heros} />
+              </>
+            ))
+          )}
         </div>
       </div>
     </>
