@@ -4,8 +4,10 @@ import { AthuContext } from "../../index";
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  const { logout, authState } = useContext(AthuContext);
+  const { logout } = useContext(AthuContext);
+  const user = localStorage.getItem("user");
   const onLogout = () => {
+    localStorage.removeItem("user");
     logout();
     navigate("login", { replace: true });
   };
@@ -47,7 +49,7 @@ export const Navbar = () => {
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-info">{authState.user}</span>
+          <span className="nav-item nav-link text-info">{user}</span>
           <button className="nav-item nav-link btn" onClick={onLogout}>
             Logout
           </button>

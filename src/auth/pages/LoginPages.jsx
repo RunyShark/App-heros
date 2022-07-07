@@ -6,7 +6,7 @@ export const LoginPages = () => {
   const navigate = useNavigate();
 
   const onLogin = () => {
-    login("Dario");
+    login("Dario M");
     navigate("/", {
       replace: true,
     });
