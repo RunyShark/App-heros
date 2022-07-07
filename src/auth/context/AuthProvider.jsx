@@ -1,7 +1,29 @@
 import { useReducer } from "react";
-import { authReducer, AthuContext } from "../";
+import { authReducer, AthuContext, types } from "../";
 
 export const AuthProvider = ({ children }) => {
   const [authState, dispatch] = useReducer(authReducer, {});
-  return <AthuContext.Provider value={{}}>{children}</AthuContext.Provider>;
+
+  const onLogin = (name = "") => {
+    const action = {
+      type: types.login,
+      payload: name,
+    };
+
+    dispatch(action);
+  };
+  const onLogout = () => {
+    const action = {
+      type: types.logout,
+    };
+
+    dispatch(action);
+  };
+  return (
+    <AthuContext.Provider
+      value={{ authState, login: onLogin, logout: onLogout }}
+    >
+      {children}
+    </AthuContext.Provider>
+  );
 };
