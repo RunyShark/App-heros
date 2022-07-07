@@ -6,3 +6,7 @@ export * from "./helpers";
 export * from "./hooks";
 //*Pages
 export * from "./pages";
+// //*types
+export * from "./types";
+//*Context
+export * from "./context";
