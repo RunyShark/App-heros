@@ -1,16 +1,22 @@
 import { useReducer } from "react";
 import { authReducer, AthuContext, types } from "../";
-
+const init = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  return {
+    logged: !!user,
+    user,
+  };
+};
 export const AuthProvider = ({ children }) => {
-  const [authState, dispatch] = useReducer(authReducer, {});
+  const [authState, dispatch] = useReducer(authReducer, {}, init);
 
   const onLogin = (name = "") => {
-    localStorage.setItem("user", name);
+    const user = { id: "Abc", name };
     const action = {
       type: types.login,
-      payload: name,
+      payload: user,
     };
-
+    localStorage.setItem("user", JSON.stringify(user));
     dispatch(action);
   };
   const onLogout = () => {

@@ -5,7 +5,8 @@ import { AthuContext } from "../../index";
 export const Navbar = () => {
   const navigate = useNavigate();
   const { logout } = useContext(AthuContext);
-  const user = localStorage.getItem("user");
+  const { name } = JSON.parse(localStorage.getItem("user"));
+
   const onLogout = () => {
     localStorage.removeItem("user");
     logout();
@@ -49,7 +50,7 @@ export const Navbar = () => {
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-info">{user}</span>
+          <span className="nav-item nav-link text-info">{name}</span>
           <button className="nav-item nav-link btn" onClick={onLogout}>
             Logout
           </button>
