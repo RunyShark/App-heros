@@ -6,3 +6,5 @@ export * from "./helpers";
 export * from "./hooks";
 //*Pages
 export * from "./pages";
+//*Routes
+export * from "./routes";
