@@ -1,5 +1,7 @@
 //*Components
 export * from "./components";
+//*Data
+export * from "./data";
 //*Helpers
 export * from "./helpers";
 //*Hooks
