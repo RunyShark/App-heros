@@ -9,7 +9,7 @@ export const SearchPage = () => {
   const location = useLocation();
   const { name = "", asc = "" } = queryString.parse(location.search);
   const heros = getHerosByName(name);
-  console.log("Alelu", heros);
+
   const { searchText, onChangeForm, onResetForm } = useForm({
     searchText: "",
   });
