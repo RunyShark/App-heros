@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AthuContext } from "../index";
-
+//
 export const PrivateRoute = ({ children }) => {
   const { authState } = useContext(AthuContext);
   const { logged } = authState;
